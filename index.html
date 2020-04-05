@@ -13,7 +13,6 @@
         font-family: "微软雅黑";
         font-style: normal;
       }
-
       #header {
         width: 100%;
         height: 800px;
@@ -122,15 +121,15 @@
       .Photo {
         clear: both;
         margin: 100px auto 0;
-        width: 600px;
-        height: 800px;
+        width: 700px;
+        height: 900px;
         background: #cccccc;
         border-top: 2px solid #576361;
       }
       .photo {
         margin: 0 auto;
-        width: 380px;
-        height: 670px;
+        width: 567px;
+        height: 836px;
         background: #cccccc;
       }
 
@@ -146,10 +145,57 @@
       .imgClicked {
         border: 1px solid red;
       }
+      #putButton {
+        cursor: pointer;
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 10%;
+      }
+      #github {
+        cursor: pointer;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 100px solid gray;
+        border-right: 100px solid transparent;
+        transition-duration: 1s;
+      }
+      #github:hover {
+        border-top: 120px solid gray;
+        border-right: 120px solid transparent;
+        transition-duration: 1s;
+      }
+      /*  兼容 IE FireFox */
+      #github-icon {
+        cursor: pointer;
+        position: absolute;
+        padding: 15px 15px;
+        display: block;
+        /* width: 24px;
+        height: 24px; */
+        margin-bottom: 3px;
+        background: url("../Images/icon/google2.png") no-repeat left top !important;
+        _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../Images/icon/google2.png");
+        background: none;
+      }
+      /* Firebox */
+      #github-icon {
+        display: block;
+        background-image: url("../Images/icon/insert.png");
+        margin-bottom: 3px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     </style>
     <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="./js/canvas.js"></script>
     <script src="./js/loadImg.js"></script>
+    <script id="github-script">
+      document.getElementById("github-icon").onclick = function () {
+        window.location.href = "https://github.com/wuzhong233/YGO-Card";
+      };
+    </script>
   </head>
   <body>
     <section id="header">
@@ -178,23 +224,37 @@
       </div>
     </section>
     <section id="input">
+      <div id="github"></div>
+      <img
+        id="github-icon"
+        src="https://github.githubassets.com/favicons/favicon.png"
+        alt=""
+      />
       <div class="message">
         选择卡片类型
         <select id="select1">
+          <option value="魔法卡">魔法卡</option>
           <option value="陷阱卡">陷阱卡</option>
-          <option value="魔法卡">魔法卡</option
-          >//https://imgsa.baidu.com/forum/w%3D580/sign=75f84293a8d3fd1f3609a232004f25ce/589b7bd0f703918f579fec77513d269758eec47a.jpg
           <option value="怪兽卡">怪兽卡</option> </select
         ><br />
         卡片标题
-        <input id="title" />
+        <input id="title" /><br /><br />
+        卡片描述<br />
+        <textarea name="" id="descript" cols="30" rows="10"></textarea>
         <div class="myProfile">
+          <br />
+          卡片版权说明<br /><br />
+          <input type="text" id="L-descript" /><br /><br />
           选择图片
           <div id="preview1">
             <img id="imgHead1" width="40" height="40" border="0" src="" />
           </div>
           <input type="file" onChange="previewImage1(this)" />
         </div>
+        <section>
+          -----------------------------------------------<br />
+          <button id="putButton" onclick="putContentView(context)">制作</button>
+        </section>
       </div>
     </section>
     <section id="produce" style="text-align: center;">
@@ -211,8 +271,8 @@
 
     <script>
       var canvas = document.getElementById("canvas");
-      canvas.width = 375;
-      canvas.height = 667;
+      canvas.width = 567;
+      canvas.height = 836;
       var context = canvas.getContext("2d");
       //putMainView(context);
     </script>
