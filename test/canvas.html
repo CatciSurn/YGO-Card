@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      #warp {
+        position: absolute;
+        left: 300px;
+        top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="warp">
+      <canvas id="canvas">
+        该浏览器暂不支持canvas！
+      </canvas>
+    </div>
+  </body>
+  <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    canvas.width = 567;
+    canvas.height = 836;
+    var context = canvas.getContext("2d");
+    //绘制卡片模板
+    context.beginPath();
+    context.rect(0, 0, 477, 666);
+    context.fillStyle = "rgb(236, 236, 236)";
+    var CardModel = new Image();
+    CardModel.src =
+      "https://imgsa.baidu.com/forum/w%3D580/sign=75f84293a8d3fd1f3609a232004f25ce/589b7bd0f703918f579fec77513d269758eec47a.jpg";
+    CardModel.onload = function () {
+      context.drawImage(CardModel, -10, -10);
+    };
+    context.fill();
+    //绘制卡片标题
+    setTimeout(function () {
+      context.beginPath();
+      context.fillStyle = "yellow";
+      context.textAlign = "left";
+      context.textBaseline = "top";
+      context.font = "45px STHeitiSC-Light";
+      context.fillText("一键冷群", 45, 50, 325);
+    }, 1000);
+    //绘制卡片种类描述
+    setTimeout(function () {
+      context.beginPath();
+      var kindDescript = new Image();
+
+      kindDescript.src =
+        "https://imgsa.baidu.com/forum/w%3D580/sign=b5f15025cb1349547e1ee86c664f92dd/3cb431381f30e92453b774954c086e061c95f744.jpg";
+      kindDescript.onload = function () {
+        context.drawImage(kindDescript, 300, 100);
+      };
+    }, 1000);
+    //绘制卡片种类图标
+    context.beginPath();
+    var kindIcon = new Image();
+
+    kindIcon.src =
+      "    https://imgsa.baidu.com/forum/w%3D580/sign=d561d2f7dab44aed594ebeec831d876a/be89fcdde71190ef25bf4362ce1b9d16fcfa6007.jpg";
+    kindIcon.onload = function () {
+      context.drawImage(kindIcon, 500, 110);
+    };
+    //绘制卡片图片
+    setTimeout(function () {
+      context.beginPath();
+      var CardImg = new Image();
+      CardImg.src =
+        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586079523761&di=f5f9c54c7c7ebf7dd33d6e19edd57299&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171119%2F08ebbd78b7cf442e9d5172fa38555072.jpeg";
+      CardImg.onload = function () {
+        context.drawImage(CardImg, 66, 160, 428, 428);
+      };
+    }, 1000);
+    //绘制文字描述
+    setTimeout(function () {
+      context.beginPath();
+      context.fillStyle = "black";
+      context.textAlign = "left";
+      context.textBaseline = "top";
+      context.font = "15px STHeitiSC-Light";
+      context.fillText(
+        "一键冷群卡片，发动后全员禁言一键冷群卡片，发动后全员禁言哟~发动后全", //34字节
+        45,
+        630,
+        465
+      );
+    }, 1000);
+    //绘制版权说明
+    setTimeout(function () {
+      context.beginPath();
+      context.fillStyle = "black";
+      context.textAlign = "left";
+      context.textBaseline = "top";
+      context.font = "15px STHeitiSC-Light";
+      context.fillText(
+        "@由wuzhong233制作", //34字节
+        40,
+        785,
+        465
+      );
+    }, 1000);
+    // 绘制卡片防伪标
+    context.beginPath();
+    var CardCopying = new Image();
+    CardCopying.src =
+      "https://imgsa.baidu.com/forum/w%3D580/sign=9f4cbf38c9ea15ce41eee00186013a25/bc28bdc27d1ed21b9283ff58ad6eddc450da3f05.jpg";
+    CardCopying.onload = function () {
+      context.drawImage(CardCopying, 530, 780, 20, 20);
+    };
+  </script>
+</html>
